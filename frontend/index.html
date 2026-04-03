@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GFG SAMAR</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; }
+        button { padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Multi-Tier App</h1>
+    <button onclick="getData()">Get Data from Backend</button>
+    <p id="result"></p>
+    
+    <script>
+        function getData() {
+            fetch('/api/data')
+                .then(r => r.json())
+                .then(d => document.getElementById('result').innerText = JSON.stringify(d))
+                .catch(e => document.getElementById('result').innerText = 'Error: ' + e);
+        }
+    </script>
+</body>
+</html>
