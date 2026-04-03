@@ -1,4 +1,4 @@
-# Simple Multi-Tier App
+# Simple Multi-Tier App 
 
 ## Files:
 - `frontend/` - Nginx web server

@@ -1,10 +1,11 @@
 const express = require('express');
-const cors = require('cors');
+const path = require('path');
 const app = express();
 
-app.use(cors());
+// Serve the frontend from the same container
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
-// Tier 1 - API Endpoints
+// API endpoints
 app.get('/api/data', (req, res) => {
     res.json({ message: 'Data from backend', users: ['Samar', 'Rahul', 'GFG'] });
 });
@@ -13,4 +14,4 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'healthy' });
 });
 
-app.listen(3000, () => console.log('Backend running on :3000'));
+app.listen(3000, () => console.log('App running on :3000'));
